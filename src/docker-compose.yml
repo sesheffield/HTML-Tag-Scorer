@@ -6,7 +6,7 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_DATABASE: "ssheffie"
+      MYSQL_DATABASE: "RedVenture"
       MYSQL_ROOT_PASSWORD: "password"
   web:
     image: python
@@ -14,7 +14,6 @@ services:
       - 5000:5000
     build: .
     command: bash -c "python3 /code/unit_test.py && python3 /code/MarkupProject.py"
-    #command: python3 /code/MarkupProject.py
     depends_on:
       - db
     volumes:
