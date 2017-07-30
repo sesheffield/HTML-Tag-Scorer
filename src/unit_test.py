@@ -4,7 +4,7 @@ import os
 import MySQLdb
 import MarkupProject
 
-db = MySQLdb.connect(host="172.17.0.1", user="root", passwd="password", db="ssheffie")
+db = MySQLdb.connect(host="172.17.0.1", user="root", passwd="password", db="RedVenture")
 cur = db.cursor()
 
 class MarkupProjectTestCase(unittest.TestCase):
