@@ -17,7 +17,7 @@ db = MySQLdb.connect(host="172.17.0.1", user="root", passwd="password",
 cur = db.cursor()
 
 # Folder location
-data_file = "./test"
+data_file = "/HTML-Tag-Scorer/data"
 
 # Retrieve the unique id and the unique id date
 def unique_id_and_date(infilename):
@@ -148,7 +148,7 @@ Watchdog: check for changes in data folder
     Handler class
 """
 class Watcher:
-    DIRECTORY_TO_WATCH = "./test"
+    DIRECTORY_TO_WATCH = "/HTML-Tag-Scorer/data"
     def __init__(self):
         self.observer = Observer()
 
