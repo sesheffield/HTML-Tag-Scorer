@@ -6,7 +6,7 @@ Instructions (Mac/Linux)
 - A web server and directory watchdog will be running concurrently so that you can call web methods in the web browser to view the results. 
 - Once the application finishes running (takes a few minutes to finish), open a web browser to call methods to print to the web browser:
     - To run the lowest score method:
-        - http://0.0.0.0:5000/retrivi evelowestscore 
+        - http://0.0.0.0:5000/retrivievelowestscore 
     - To run the highest score method:
         - http://0.0.0.0:5000/retrievehighestscore 
     - To run the average score method
@@ -14,7 +14,7 @@ Instructions (Mac/Linux)
     - To run retrieve score method given a unique id:
         - http://0.0.0.0:5000/retrievescore/<unique_id>  
     - To run retrieve score within a ranged date:
-        - http://0.0.0.0:5000/retrievescorerange?start=<startDate>&end=<endDate> 
+        - http://0.0.0.0:5000/retrievescorerange?start="<startDate>"&end="<endDate>" 
     - To print the database table:
         - http://0.0.0.0:5000/print 
 - The polling of a directory allows you to drop off an .html file in the ./data folder. The application automatically parses the file and stores the results into the database.
