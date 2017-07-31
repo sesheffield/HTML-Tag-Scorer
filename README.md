@@ -10,11 +10,14 @@ Instructions (Mac/Linux)
     - To run the highest score method:
         - http://0.0.0.0:5000/retrievehighestscore 
     - To run the average score method
-        - http://0.0.0.0:5000/averagescore 
+        - http://0.0.0.0:5000/retrieveaveragescore 
     - To run retrieve score method given a unique id:
         - http://0.0.0.0:5000/retrievescore/{unique_id}  
+            - For unique_id, enter a name
     - To run retrieve score within a ranged date:
         - http://0.0.0.0:5000/retrievescorerange?start={startDate}&end={endDate}
+            - For startDate and endDate, use format yyyy_mm_dd without quotes 
+            - ex: ...?start=2000_01_01&end=2020_01_01 
     - To print the database table:
         - http://0.0.0.0:5000/print 
 - The polling of a directory allows you to drop off an .html file in the ./data folder. The application automatically parses the file and stores the results into the database.

@@ -6,6 +6,7 @@ from watchdog.events import FileSystemEventHandler
 import time
 import os
 import MySQLdb
+from tabulate import tabulate
 
 
 app = Flask(__name__)
@@ -55,7 +56,10 @@ tagDict = {"div": 3,
 def retrieveScore(name):
     cur.execute("SELECT name, score FROM markupProject WHERE name = %s", (name,))
     rows = cur.fetchall()
-    return str(rows)
+    text = ""
+    for row in rows:
+        text += '| {0:15} | {1} |<br>'.format(row[0], row[1])
+    return text 
 
 # Retrieve highest score 
 @app.route("/retrievehighestscore")
@@ -63,7 +67,10 @@ def retrieveHighestScored():
     cur.execute('''SELECT name, score FROM markupProject 
             WHERE score = (SELECT max(score) FROM markupProject)''')
     rows = cur.fetchall()
-    return str(rows)
+    text = ""
+    for row in rows:
+        text += '| {0:15} | {1} |<br>'.format(row[0], row[1])
+    return text 
 
 # Retrieve lowest score
 @app.route("/retrievelowestscore")
@@ -71,29 +78,38 @@ def retrieveLowestScored():
     cur.execute('''SELECT name, score FROM markupProject 
             WHERE score = (SELECT min(score) FROM markupProject)''')
     rows = cur.fetchall()
-    return str(rows)
+    text = ""
+    for row in rows:
+        text += '| {0:15} | {1} |<br>'.format(row[0], row[1])
+    return text 
 
-# Retrieve score within a certain date range
+    # Retrieve score within a certain date range
 @app.route("/retrievescorerange")
 def retrieveDateRange():
     startDate = request.args.get('start')
     endDate = request.args.get('end')
-    return retreiveDateRange(startDate, endDate)
+    return retrieveDateRange(startDate, endDate)
 
 def retrieveDateRange(startDate, endDate):
     cur.execute('''SELECT name, score FROM markupProject 
             WHERE date BETWEEN %s
             AND %s ORDER BY name''', (startDate, endDate,))
     rows = cur.fetchall()
-    return str(rows)
+    text = ""
+    for row in rows:
+        text += '| {0:15} | {1} |<br>'.format(row[0], row[1])
+    return text 
 
 # Return the average score for each unique id
-@app.route("/averagescore")
+@app.route("/retrieveaveragescore")
 def averageScore():
     cur.execute('''SELECT name, AVG(score) FROM markupProject GROUP BY name
             ORDER BY name''')
     rows = cur.fetchall()
-    return str(rows)
+    text = ""
+    for row in rows:
+        text += '| {0:15} | {1} |<br>'.format(row[0], row[1])
+    return text 
 
 # Upsert command to insert into table if unique id and date are unique,
 # otherwise, update the row
@@ -109,7 +125,11 @@ def upsert(unique_id, unique_id_score, unique_id_date):
 def printTable():
     cur.execute("SELECT name, score, date FROM markupProject")
     rows = cur.fetchall()
-    return str(rows)
+    text = ""
+    for row in rows:
+        text += '| {0:15} | {1} | {2} |<br>'.format(row[0], row[1],
+                row[2])
+    return text 
 
 # Create the table
 def createTable():
