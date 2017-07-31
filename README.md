@@ -6,7 +6,7 @@ Instructions (Mac/Linux)
 - A web server and directory watchdog will be running concurrently so that you can call web methods in the web browser to view the results. 
 - Once the application finishes running (takes a few minutes to finish), open a web browser to call methods to print to the web browser:
     - To run the lowest score method:
-        - http://0.0.0.0:5000/retrivievelowestscore 
+        - http://0.0.0.0:5000/retrievelowestscore 
     - To run the highest score method:
         - http://0.0.0.0:5000/retrievehighestscore 
     - To run the average score method
