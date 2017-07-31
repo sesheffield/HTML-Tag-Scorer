@@ -3,7 +3,6 @@ Instructions (Mac/Linux)
     - https://docs.docker.com/engine/installation/
 - Clone from git
 - Once repository is created, change directory to HTML-Tag-Scorer and execute “./run.sh” in command line.
-    - '''./run.sh'''
 - A web server and directory watchdog will be running concurrently so that you can call web methods in the web browser to view the results. 
 - Once the application finishes running (takes a few minutes to finish), open a web browser to call methods to print to the web browser:
     - To run the lowest score method:
