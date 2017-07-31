@@ -14,7 +14,7 @@ Instructions (Mac/Linux)
     - To run retrieve score method given a unique id:
         - http://0.0.0.0:5000/retrievescore/<unique_id>  
     - To run retrieve score within a ranged date:
-        - http://0.0.0.0:5000/retrievescorerange?start="<startDate>"&end="<endDate>" 
+        - http://0.0.0.0:5000/retrievescorerange?start=<startDate>&end=<endDate>
     - To print the database table:
         - http://0.0.0.0:5000/print 
 - The polling of a directory allows you to drop off an .html file in the ./data folder. The application automatically parses the file and stores the results into the database.
